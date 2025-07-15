@@ -1,0 +1,15 @@
+{
+    "name": "lenovo/testing",
+    "autoload": {
+        "psr-4": {
+            "Lenovo\\Testing\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "LLen-G",
+            "email": "christianallengalang@gmail.com"
+        }
+    ],
+    "require": {}
+}

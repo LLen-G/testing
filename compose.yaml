@@ -1,8 +1,8 @@
 services:
-  web-app-php:
+  testing:
     build:
       context: .
-    container_name: web-app-php-service
+    container_name: testing-service
     ports:
       - "8000:8000"
     develop:
@@ -19,31 +19,31 @@ services:
 
   mongodb:
     image: mongo:latest
-    container_name: web-app-php-mongodb
+    container_name: testing-mongodb
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: rootPassword
       MONGO_INITDB_DATABASE: mydatabase
     ports:
-      - "27111:27017"
+      - "27000:27017"
     volumes:
-      - web-app-php-mongodb:/data/db/mongodb
+      - testing-mongodb:/data/db/mongodb
 
   postgresql:
     image: postgres:15
-    container_name: web-app-php-postgresql
+    container_name: testing-postgresql
     restart: always
     environment:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
       POSTGRES_DB: mydatabase
     ports:
-      - "5112:5432"
+      - "5555:5432"
     volumes:
-      - web-app-php-postgresql:/data/db/postgresql
+      - testing-postgresql:/data/db/postgresql
 
 volumes:
-  web-app-php-mongodb:
+  testing-mongodb:
     driver: local
-  web-app-php-postgresql:
+  testing-postgresql:
     driver: local
